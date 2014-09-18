@@ -1,22 +1,20 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
 <html>
 <body>
 	
     <table>
-		<?php 
+		<?php 						//empty -> dice si está vacío
 			$num = "";
-			if(empty($_GET["numero"])||$_GET["numero"]<0){ //isset -> dice si está lleno
-				$num =2;				//empty -> dice si está vacío
-				echo "Hay que introducir un número mayor que 0";
+			if(empty($_GET["numero"])||$_GET["numero"]<0 ||!is_numeric($_GET["numero"])|| is_float($_GET["numero"])){ //isset -> dice si está lleno
+												
+				echo "Hay que introducir un número entero mayor que 0";
 			}else{
 				
 				$num = $_GET["numero"];
 				
 			}
-			if(is_numeric($_GET["numero"])){
-				$num = $_GET["numero"];
-			}else{
-				echo "Hay que introducir un número";
-			}
+			
 						    	
 	    	for ($i=0; $i < $num; $i++) { 
 	    	echo'<tr>
